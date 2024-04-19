@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     
     environment {
         Build_server = '172.31.25.16'
@@ -8,25 +8,21 @@ pipeline {
 
     stages {
         stage('Trigger Ansible Script on Build Server') {
-            agent {
-                label 'master'
-            }
             steps {
                 script {
                     // Execute Ansible playbook on Build Server
-                    sh "ssh -i /home/ubuntu/id_rsa ubuntu@${env.Build_server} 'ansible-playbook /home/ubuntu/playbook.yaml'"
-                }
+                    sh "ssh -i ../id_rsa ubuntu@13.51.233.168 'ansible-playbook /home/ubuntu/playbook.yaml'"                    // 'ansible-playbook /home/ubuntu/playbook.yaml'"
+                
+                    
+                    }
             }
         }
         
         stage('Deploy Script on Deploy Server') {
-            agent {
-                label 'master'
-            }
             steps {
                 script {
                     // Execute deployment playbook on Deploy Server
-                    sh "ssh -i your_ssh_key user@${env.Build_server} 'ansible-playbook /home/ubuntu/deploy.yaml'"
+                    sh "ssh -i ../id_rsa ubuntu@13.51.233.168 'ansible-playbook /home/ubuntu/deploy.yaml'"
                 }
             }
         }
