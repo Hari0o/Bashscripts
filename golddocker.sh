@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo rm -rf harigoldapp
 sudo mkdir harigoldapp
 cd harigoldapp
 sudo git clone https://github.com/Hari0o/DockerFiles.git .
