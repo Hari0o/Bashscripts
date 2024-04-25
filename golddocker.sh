@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo docker system prune -f
 sudo rm -rf harigoldapp
 sudo mkdir harigoldapp
 cd harigoldapp
