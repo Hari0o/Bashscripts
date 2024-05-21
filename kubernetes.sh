@@ -1,7 +1,7 @@
 #!/bin/bash
 #alias "kubectl=microk8s kubectl"
-#microk8s kubectl delete ns harigold
-#microk8s kubectl create ns harigold
+microk8s kubectl delete ns harigold
+microk8s kubectl create ns harigold
 sudo rm -rf * harigoldshop
 mkdir harigoldshop
 cd harigoldshop
